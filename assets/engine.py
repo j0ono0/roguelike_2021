@@ -4,9 +4,9 @@ from tcod.context import Context
 from tcod.console import Console
 from tcod.map import compute_fov
 
-from entity import Entity
-from game_map import GameMap
-from input_handlers import EventHandler
+from .entity import Entity
+from .procedural_maps.game_map import GameMap
+from .input_handlers import EventHandler
 
 
 class Engine:

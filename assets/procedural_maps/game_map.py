@@ -5,7 +5,7 @@ from typing import Iterable, TYPE_CHECKING
 import numpy as np  # type: ignore
 from tcod.console import Console
 
-import tile_types
+from . import tile_types
 
 if TYPE_CHECKING:
     from entity import Entity

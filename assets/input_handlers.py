@@ -2,7 +2,7 @@ from typing import Optional
 
 import tcod.event
 
-from actions import Action, EscapeAction, BumpAction
+from .actions import Action, EscapeAction, BumpAction
 
 
 class EventHandler(tcod.event.EventDispatch[Action]):
