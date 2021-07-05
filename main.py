@@ -1,11 +1,10 @@
 import copy
 import tcod
-
-from assets.engine import Engine
-from assets import entity_factories
-from assets.input_handlers import EventHandler
-from assets.procedural_maps.dungeon import generate_dungeon
-from assets.procedural_maps.cave import generate_map
+from roguelike_2021.engine import Engine
+from roguelike_2021 import entity_factories
+from roguelike_2021.input_handlers import EventHandler
+from roguelike_2021.procedural_maps.dungeon import generate_dungeon
+from roguelike_2021.procedural_maps.cave import generate_map
 
 
 def main() -> None:
