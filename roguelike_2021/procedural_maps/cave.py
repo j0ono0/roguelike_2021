@@ -11,7 +11,7 @@ from .game_map import GameMap
 from . import tile_types
 
 if TYPE_CHECKING:
-    from entity import Entity
+    from ..engine import Engine
 
 
 def place_entities(environment: GameMap, maximum_monsters: int):
@@ -26,9 +26,10 @@ def place_entities(environment: GameMap, maximum_monsters: int):
                 entity_factories.troll.spawn(environment, x, y)
 
 
-def generate_map(map_width, map_height, max_monsters, player):
+def generate_map(map_width: int, map_height: int, max_monsters: int, engine: Engine):
 
-    game_map = GameMap(map_width, map_height, entities=[player])
+    player = engine.player
+    game_map = GameMap(engine, map_width, map_height, entities=[player])
 
     total_cells = map_width * map_height
     on_cells = int(total_cells * 0.45)
@@ -59,9 +60,7 @@ def generate_map(map_width, map_height, max_monsters, player):
     for x in range(1, map_width):
         for y in range(1, map_height):
             if np.sum(arr[x-1:x+2, y-1:y+2]) == 0:
-                player.x = x
-                player.y = y
-                print(x, y)
+                player.place(x, y, game_map)
                 return game_map
     # Try again if player cannot be placed!
     generate_map(map_width, map_height, player)
