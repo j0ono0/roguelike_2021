@@ -10,7 +10,7 @@ from .game_map import GameMap
 from . import tile_types
 
 if TYPE_CHECKING:
-    from ..entity import Engine
+    from ..engine import Engine
 
 
 class RectangularRoom:
